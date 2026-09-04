@@ -1,3 +1,7 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#D33A63">
+<meta name="description" content="Una tarjeta para los 18 de Iara, de su cuñado Junni.">
 <title>Feliz cumple, Iara</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -96,8 +100,9 @@
     background:var(--turquesa);
     border:0;
     border-radius:2px;
-    padding:.7rem 1.3rem;
+    padding:.85rem 1.5rem;
     cursor:pointer;
+    min-height:44px;
     transition:background .18s ease;
   }
   .btn:hover{background:#0B7A73}
@@ -177,7 +182,7 @@
     background:rgba(255,246,236,.34);
     transition:transform .55s cubic-bezier(.4,0,.2,1);
   }
-  .caja::before{top:0; bottom:0; left:calc(38% - 9px); width:18px}
+  .caja::before{top:0; bottom:0; left:calc(50% - 9px); width:18px}
   .caja::after{left:0; right:0; top:calc(50% - 9px); height:18px}
   .caja.abierta::before{transform:translateY(-115%)}
   .caja.abierta::after{transform:translateX(115%)}
@@ -185,6 +190,7 @@
   .cara{position:relative; z-index:1; width:100%; transition:opacity .35s ease}
   .cara[hidden]{display:none}
   .caja.cambiando .cara{opacity:0}
+  .cerrada{display:flex; flex-direction:column; align-items:center; text-align:center; gap:.9rem}
 
   .etiqueta{
     font-family:"Bricolage Grotesque",system-ui,sans-serif;
@@ -192,7 +198,7 @@
     font-weight:600;
     letter-spacing:.22em;
     text-transform:uppercase;
-    margin:0 0 .9rem;
+    margin:0;
     color:rgba(255,246,236,.9);
   }
   .btn-regalo{background:#FFF6EC; color:var(--coral)}
@@ -281,7 +287,7 @@
     <section class="bloque carta">
       <p class="promesa">Y como tu cu&ntilde;ado, <span class="marca">yo no te fallo</span>. Nunca.</p>
       <div class="caja" id="caja">
-        <div class="cara" id="caraCerrada">
+        <div class="cara cerrada" id="caraCerrada">
           <p class="etiqueta">Hay algo para ti</p>
           <button class="btn btn-regalo" id="verRegalo" type="button">Ver regalo</button>
         </div>
