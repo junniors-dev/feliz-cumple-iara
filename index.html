@@ -1,0 +1,561 @@
+<title>Feliz cumple, Iara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Shantell+Sans:ital,wght@0,400..700;1,400..700&display=swap">
+<style>
+  :root{
+    --fondo:#D33A63;
+    --papel:#FFF1E0;
+    --papel-2:#F8E2CB;
+    --tinta:#2B1A2E;
+    --tinta-suave:#7A5061;
+    --turquesa:#0F8F87;
+    --amarillo:#F6B93B;
+    --morado:#6C4BC1;
+    --coral:#F2695A;
+  }
+
+  *{box-sizing:border-box}
+
+  body{
+    margin:0;
+    background:var(--fondo);
+    color:var(--tinta);
+    font-family:"Newsreader",Georgia,serif;
+    font-size:1.125rem;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  #confeti{position:fixed; inset:0; z-index:5; pointer-events:none}
+
+  .marco{padding:clamp(1rem,4vw,3rem) clamp(.75rem,4vw,2rem) clamp(3rem,8vw,5rem)}
+
+  .tarjeta{
+    position:relative;
+    z-index:1;
+    max-width:41rem;
+    margin:0 auto;
+    background:var(--papel);
+    border-radius:6px;
+    box-shadow:0 24px 60px rgba(58,10,26,.28);
+    overflow:hidden;
+  }
+
+  .bloque{padding:clamp(1.5rem,5vw,2.75rem)}
+
+  /* ---------- portada: el saludo y las velas ---------- */
+  .portada{padding-bottom:.5rem}
+
+  .sobre{
+    font-family:"Bricolage Grotesque",system-ui,sans-serif;
+    font-size:.7rem;
+    font-weight:600;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--tinta-suave);
+    margin:0 0 1.25rem;
+  }
+
+  .grito{
+    font-family:"Shantell Sans","Comic Sans MS",cursive;
+    font-weight:700;
+    font-size:clamp(2.2rem,10vw,3.6rem);
+    line-height:1;
+    color:var(--fondo);
+    margin:0;
+    transform:rotate(-2.5deg);
+    transform-origin:left center;
+  }
+
+  #velas{display:block; width:100%; height:180px; margin:.5rem 0 0}
+
+  .pie-velas{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:.9rem 1.25rem;
+    border-top:1px solid rgba(43,26,46,.14);
+    padding-top:1.1rem;
+    margin-top:.25rem;
+  }
+  .cuenta{
+    font-family:"Bricolage Grotesque",system-ui,sans-serif;
+    font-size:.82rem;
+    font-weight:500;
+    color:var(--tinta-suave);
+    margin:0;
+    flex:1 1 12rem;
+  }
+  .btn{
+    font-family:"Bricolage Grotesque",system-ui,sans-serif;
+    font-size:.85rem;
+    font-weight:700;
+    letter-spacing:.04em;
+    color:var(--papel);
+    background:var(--turquesa);
+    border:0;
+    border-radius:2px;
+    padding:.7rem 1.3rem;
+    cursor:pointer;
+    transition:background .18s ease;
+  }
+  .btn:hover{background:#0B7A73}
+  .btn:focus-visible{outline:3px solid var(--morado); outline-offset:3px}
+
+  /* ---------- corte de papel ---------- */
+  .corte{display:block; width:100%; height:22px; color:var(--papel-2)}
+
+  /* ---------- carta ---------- */
+  .carta{background:var(--papel-2); padding-top:clamp(.5rem,2vw,1rem)}
+
+  .titular{
+    font-family:"Bricolage Grotesque",system-ui,sans-serif;
+    font-weight:800;
+    font-size:clamp(2.1rem,8.5vw,3.4rem);
+    line-height:.98;
+    letter-spacing:-.035em;
+    text-wrap:balance;
+    margin:0 0 1.5rem;
+  }
+  .titular span{color:var(--fondo)}
+
+  .carta p{margin:0 0 1.15rem; max-width:33em}
+  .carta p:last-child{margin-bottom:0}
+  .entrada{font-size:1.32rem; line-height:1.5}
+
+  /* ---------- deseos ---------- */
+  .rotulo{
+    font-family:"Bricolage Grotesque",system-ui,sans-serif;
+    font-size:.7rem;
+    font-weight:600;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--tinta-suave);
+    margin:0 0 1rem;
+  }
+  .deseos{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.85rem}
+  .deseos li{display:flex; align-items:baseline; gap:.85rem; max-width:33em}
+  .mecha{width:.7rem; height:.7rem; border-radius:1px; flex:none; transform:translateY(-1px)}
+  .deseos li:nth-child(1) .mecha{background:var(--turquesa)}
+  .deseos li:nth-child(2) .mecha{background:var(--amarillo)}
+  .deseos li:nth-child(3) .mecha{background:var(--morado)}
+
+  /* ---------- promesa ---------- */
+  .promesa{
+    font-family:"Bricolage Grotesque",system-ui,sans-serif;
+    font-weight:700;
+    font-size:clamp(1.5rem,5.6vw,2.15rem);
+    line-height:1.15;
+    letter-spacing:-.025em;
+    text-wrap:balance;
+    margin:0;
+  }
+  .marca{
+    background:linear-gradient(to bottom, transparent 12%, rgba(246,185,59,.62) 12%, rgba(246,185,59,.62) 92%, transparent 92%);
+    padding:0 .12em;
+  }
+
+  /* ---------- la caja del regalo ---------- */
+  .caja{
+    position:relative;
+    overflow:hidden;
+    margin:1.9rem 0 0;
+    max-width:33em;
+    background:var(--coral);
+    color:#FFF6EC;
+    padding:1.6rem 1.4rem;
+    min-height:8.5rem;
+    display:flex;
+    align-items:center;
+  }
+  /* los lazos: se van cuando la abre */
+  .caja::before,
+  .caja::after{
+    content:"";
+    position:absolute;
+    background:rgba(255,246,236,.34);
+    transition:transform .55s cubic-bezier(.4,0,.2,1);
+  }
+  .caja::before{top:0; bottom:0; left:calc(38% - 9px); width:18px}
+  .caja::after{left:0; right:0; top:calc(50% - 9px); height:18px}
+  .caja.abierta::before{transform:translateY(-115%)}
+  .caja.abierta::after{transform:translateX(115%)}
+
+  .cara{position:relative; z-index:1; width:100%; transition:opacity .35s ease}
+  .cara[hidden]{display:none}
+  .caja.cambiando .cara{opacity:0}
+
+  .etiqueta{
+    font-family:"Bricolage Grotesque",system-ui,sans-serif;
+    font-size:.7rem;
+    font-weight:600;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    margin:0 0 .9rem;
+    color:rgba(255,246,236,.9);
+  }
+  .btn-regalo{background:#FFF6EC; color:var(--coral)}
+  .btn-regalo:hover{background:#fff}
+  .btn-regalo:focus-visible{outline-color:var(--tinta)}
+
+  .sorpresa{
+    font-family:"Shantell Sans","Comic Sans MS",cursive;
+    font-weight:700;
+    font-size:clamp(2rem,7.5vw,2.9rem);
+    line-height:1;
+    margin:0 0 .55rem;
+    transform:rotate(-2deg);
+    transform-origin:left center;
+  }
+  .revelado{margin:0; font-size:1rem; line-height:1.55}
+  .revelado b{font-weight:600}
+
+  /* ---------- firma ---------- */
+  .firma{
+    display:flex;
+    align-items:baseline;
+    justify-content:flex-end;
+    gap:.9rem;
+    padding-top:2.25rem;
+  }
+  .firma .de{
+    font-family:"Bricolage Grotesque",system-ui,sans-serif;
+    font-size:.72rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--tinta-suave);
+    margin:0;
+  }
+  .firma .nombre{
+    font-family:"Shantell Sans","Comic Sans MS",cursive;
+    font-weight:700;
+    font-size:clamp(2.4rem,9vw,3.2rem);
+    line-height:1;
+    color:var(--fondo);
+    margin:0;
+    transform:rotate(-3deg);
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important}
+  }
+</style>
+
+<canvas id="confeti" aria-hidden="true"></canvas>
+
+<div class="marco">
+  <main class="tarjeta">
+
+    <section class="bloque portada">
+      <p class="sobre">Para Iara &middot; de su cu&ntilde;ado</p>
+      <p class="grito">OLAAA IARIS!!!</p>
+
+      <canvas id="velas" aria-hidden="true"></canvas>
+
+      <div class="pie-velas">
+        <p class="cuenta" id="cuenta">Dieciocho velas encendidas, una por cada a&ntilde;o.</p>
+        <button class="btn" id="soplar" type="button">Soplar las velas</button>
+      </div>
+    </section>
+
+    <svg class="corte" viewBox="0 0 1200 22" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M0 22V9c50 6 100 6 150 0s100-6 150 0 100 6 150 0 100-6 150 0 100 6 150 0 100-6 150 0 100 6 150 0 100-6 150 0v13z"></path>
+    </svg>
+
+    <section class="bloque carta">
+      <h1 class="titular">Feliz cumplea&ntilde;os,<br><span>cu&ntilde;ada</span></h1>
+      <p class="entrada">Iaris, feliz 18. Te quer&iacute;a decir el mejor de los &eacute;xitos y lo mejor en todo, de verdad.</p>
+      <p>Hoy es un d&iacute;a especial y espero que la pases bonito, que sea un d&iacute;a lindo de principio a fin y que te celebren como te mereces.</p>
+    </section>
+
+    <section class="bloque">
+      <p class="rotulo">Lo que te deseo</p>
+      <ul class="deseos">
+        <li><span class="mecha" aria-hidden="true"></span><span>El mejor de los &eacute;xitos en todo lo que te propongas</span></li>
+        <li><span class="mecha" aria-hidden="true"></span><span>Lo mejor en todo, siempre</span></li>
+        <li><span class="mecha" aria-hidden="true"></span><span>Que hoy te salga bonito de principio a fin</span></li>
+      </ul>
+    </section>
+
+    <section class="bloque carta">
+      <p class="promesa">Y como tu cu&ntilde;ado, <span class="marca">yo no te fallo</span>. Nunca.</p>
+      <div class="caja" id="caja">
+        <div class="cara" id="caraCerrada">
+          <p class="etiqueta">Hay algo para ti</p>
+          <button class="btn btn-regalo" id="verRegalo" type="button">Ver regalo</button>
+        </div>
+        <div class="cara" id="caraAbierta" hidden>
+          <p class="sorpresa">&iexcl;Sorpresa!</p>
+          <p class="revelado">Es sorpresa hasta que te lo lleve. <b>Te lo doy cuando vaya</b>, y si no, Pri te lo entrega de mi parte.</p>
+        </div>
+      </div>
+
+      <div class="firma">
+        <p class="de">Con cari&ntilde;o,</p>
+        <p class="nombre">Junni</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var TOTAL = 18;
+  var COLORES = ['#0F8F87','#F6B93B','#6C4BC1','#F2695A'];
+
+  /* ---------------- torta y velas ---------------- */
+  var cv = document.getElementById('velas');
+  var ctx = cv.getContext('2d');
+  var ancho = 0, alto = 180, dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var velas = [], humo = [];
+
+  for (var i = 0; i < TOTAL; i++){
+    velas.push({
+      color: COLORES[i % COLORES.length],
+      fase: Math.random() * 6.283,
+      viva: true,
+      apagaEn: 0
+    });
+  }
+
+  function medir(){
+    ancho = cv.clientWidth || cv.parentNode.clientWidth;
+    cv.width = ancho * dpr;
+    cv.height = alto * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function torta(){
+    var top = 108, base = alto - 6, izq = 4, der = ancho - 4, r = 10;
+    // bizcocho
+    ctx.beginPath();
+    ctx.moveTo(izq + r, top);
+    ctx.lineTo(der - r, top);
+    ctx.quadraticCurveTo(der, top, der, top + r);
+    ctx.lineTo(der, base - r);
+    ctx.quadraticCurveTo(der, base, der - r, base);
+    ctx.lineTo(izq + r, base);
+    ctx.quadraticCurveTo(izq, base, izq, base - r);
+    ctx.lineTo(izq, top + r);
+    ctx.quadraticCurveTo(izq, top, izq + r, top);
+    ctx.closePath();
+    ctx.fillStyle = '#E5B37E';
+    ctx.fill();
+    // relleno
+    ctx.fillStyle = '#C77E56';
+    ctx.fillRect(izq, top + 34, der - izq, 7);
+    // crema
+    ctx.fillStyle = '#FFF9F0';
+    ctx.fillRect(izq, top - 12, der - izq, 24);
+    // gotas de crema
+    var n = Math.max(6, Math.round((der - izq) / 34));
+    for (var g = 0; g <= n; g++){
+      var gx = izq + (der - izq) * (g / n);
+      var gr = 6 + ((g * 37) % 7);
+      ctx.beginPath();
+      ctx.arc(gx, top + 12, gr, 0, 6.2832);
+      ctx.fillStyle = '#FFF9F0';
+      ctx.fill();
+    }
+    return top - 6;
+  }
+
+  function llama(x, y, t, fase, escala){
+    var vaiven = Math.sin(t * 0.006 + fase) * 1.3 + Math.sin(t * 0.013 + fase * 2) * 0.6;
+    var h = escala * (1 + Math.sin(t * 0.009 + fase * 1.7) * 0.13);
+    var brillo = ctx.createRadialGradient(x, y - h * 0.45, 0, x, y - h * 0.45, h * 1.9);
+    brillo.addColorStop(0, 'rgba(255,186,82,.5)');
+    brillo.addColorStop(1, 'rgba(255,186,82,0)');
+    ctx.fillStyle = brillo;
+    ctx.beginPath();
+    ctx.arc(x, y - h * 0.45, h * 1.9, 0, 6.2832);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.quadraticCurveTo(x - h * 0.44, y - h * 0.52, x + vaiven, y - h);
+    ctx.quadraticCurveTo(x + h * 0.44, y - h * 0.52, x, y);
+    ctx.fillStyle = '#FF922B';
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(x, y - 1);
+    ctx.quadraticCurveTo(x - h * 0.2, y - h * 0.38, x + vaiven * 0.6, y - h * 0.58);
+    ctx.quadraticCurveTo(x + h * 0.2, y - h * 0.38, x, y - 1);
+    ctx.fillStyle = '#FFE3A0';
+    ctx.fill();
+  }
+
+  function pintar(t){
+    ctx.clearRect(0, 0, ancho, alto);
+    var baseY = torta();
+    var margen = Math.max(14, ancho * 0.045);
+    var util = ancho - margen * 2;
+    var paso = util / (TOTAL - 1);
+    var w = Math.max(5, Math.min(9, paso * 0.42));
+    var h = 48;
+
+    for (var i = 0; i < TOTAL; i++){
+      var x = margen + paso * i;
+      var top = baseY - h;
+      // cuerpo
+      ctx.fillStyle = velas[i].color;
+      ctx.fillRect(x - w / 2, top, w, h);
+      ctx.fillStyle = 'rgba(255,249,240,.85)';
+      for (var s = 0; s < 3; s++){
+        ctx.fillRect(x - w / 2, top + 8 + s * 13, w, 4);
+      }
+      // mecha
+      ctx.strokeStyle = '#4A3320';
+      ctx.lineWidth = 1.6;
+      ctx.beginPath();
+      ctx.moveTo(x, top);
+      ctx.lineTo(x, top - 5);
+      ctx.stroke();
+
+      if (velas[i].viva) llama(x, top - 5, t, velas[i].fase, 15);
+    }
+
+    for (var k = humo.length - 1; k >= 0; k--){
+      var p = humo[k];
+      p.y += p.vy;
+      p.x += Math.sin(p.y * 0.06) * 0.4;
+      p.r += 0.05;
+      p.vida -= 0.012;
+      if (p.vida <= 0){ humo.splice(k, 1); continue; }
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, 6.2832);
+      ctx.fillStyle = 'rgba(150,132,140,' + (p.vida * 0.35) + ')';
+      ctx.fill();
+    }
+  }
+
+  var inicio = 0;
+  function marco(t){
+    if (!inicio) inicio = t;
+    pintar(t - inicio);
+    requestAnimationFrame(marco);
+  }
+
+  medir();
+  window.addEventListener('resize', function(){ medir(); if (reduce) pintar(0); });
+
+  if (reduce) pintar(0); else requestAnimationFrame(marco);
+
+  /* ---------------- confeti ---------------- */
+  var cc = document.getElementById('confeti');
+  var cx2 = cc.getContext('2d');
+  var trozos = [];
+  var corriendo = false;
+
+  function medirConfeti(){
+    cc.width = window.innerWidth * dpr;
+    cc.height = window.innerHeight * dpr;
+    cc.style.width = window.innerWidth + 'px';
+    cc.style.height = window.innerHeight + 'px';
+    cx2.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  medirConfeti();
+  window.addEventListener('resize', medirConfeti);
+
+  function lanzar(el, cantidad){
+    var zona = el.getBoundingClientRect();
+    for (var i = 0; i < cantidad; i++){
+      trozos.push({
+        x: zona.left + Math.random() * zona.width,
+        y: zona.top + zona.height * 0.55,
+        vx: (Math.random() - 0.5) * 8,
+        vy: Math.random() * -11 - 3,
+        giro: Math.random() * 3.14,
+        vgiro: (Math.random() - 0.5) * 0.2,
+        w: 4 + Math.random() * 5,
+        h: 7 + Math.random() * 8,
+        color: COLORES[(Math.random() * COLORES.length) | 0]
+      });
+    }
+    if (!corriendo){ corriendo = true; requestAnimationFrame(volar); }
+  }
+
+  function volar(){
+    cx2.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    for (var i = trozos.length - 1; i >= 0; i--){
+      var p = trozos[i];
+      p.x += p.vx; p.y += p.vy; p.vy += 0.22; p.vx *= 0.99; p.giro += p.vgiro;
+      cx2.save();
+      cx2.translate(p.x, p.y);
+      cx2.rotate(p.giro);
+      cx2.fillStyle = p.color;
+      cx2.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      cx2.restore();
+      if (p.y > window.innerHeight + 40) trozos.splice(i, 1);
+    }
+    if (trozos.length){ requestAnimationFrame(volar); }
+    else { corriendo = false; cx2.clearRect(0, 0, window.innerWidth, window.innerHeight); }
+  }
+
+  /* ---------------- soplar ---------------- */
+  var boton = document.getElementById('soplar');
+  var cuenta = document.getElementById('cuenta');
+  var apagadas = false;
+
+  boton.addEventListener('click', function(){
+    if (!apagadas){
+      apagadas = true;
+      boton.textContent = 'Prenderlas de nuevo';
+      cuenta.textContent = 'Dieciocho de dieciocho. Ahora pide el deseo.';
+      velas.forEach(function(v, i){
+        setTimeout(function(){
+          v.viva = false;
+          soltarHumo(i);
+        }, reduce ? 0 : i * 65);
+      });
+      setTimeout(function(){ if (!reduce) lanzar(cv, 150); }, reduce ? 0 : TOTAL * 65 + 150);
+    } else {
+      apagadas = false;
+      boton.textContent = 'Soplar las velas';
+      cuenta.textContent = 'Dieciocho velas encendidas, una por cada año.';
+      velas.forEach(function(v, i){
+        setTimeout(function(){ v.viva = true; }, reduce ? 0 : i * 35);
+      });
+    }
+    if (reduce) pintar(0);
+  });
+
+  function soltarHumo(i){
+    if (reduce) return;
+    var margen = Math.max(14, ancho * 0.045);
+    var paso = (ancho - margen * 2) / (TOTAL - 1);
+    var x = margen + paso * i;
+    var top = 102 - 48;
+    for (var s = 0; s < 9; s++){
+      humo.push({
+        x: x + (Math.random() - 0.5) * 3,
+        y: top - 6 - Math.random() * 4,
+        vy: -0.3 - Math.random() * 0.35,
+        r: 1.4 + Math.random() * 2,
+        vida: 0.7 + Math.random() * 0.5
+      });
+    }
+  }
+
+  /* ---------------- el regalo ---------------- */
+  var caja = document.getElementById('caja');
+  var caraCerrada = document.getElementById('caraCerrada');
+  var caraAbierta = document.getElementById('caraAbierta');
+
+  document.getElementById('verRegalo').addEventListener('click', function(){
+    function abrir(){
+      caraCerrada.hidden = true;
+      caraAbierta.hidden = false;
+      caja.classList.add('abierta');
+      if (reduce){ caja.classList.remove('cambiando'); return; }
+      requestAnimationFrame(function(){ caja.classList.remove('cambiando'); });
+      lanzar(caja, 90);
+    }
+    if (reduce){ abrir(); return; }
+    caja.classList.add('cambiando');
+    setTimeout(abrir, 300);
+  });
+})();
+</script>
